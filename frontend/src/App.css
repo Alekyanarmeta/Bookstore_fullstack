@@ -1,0 +1,118 @@
+.logo{
+  width: 40px;
+  height:40px;
+}
+
+.navbar{
+  display:flex;
+  gap:1rem;
+}
+.navbar1:hover{
+  color: blue;
+}
+
+@media(max-width:670px)
+{
+  .direction{
+    flex-direction:column;
+    width:100%;
+    display:block;
+    align-items: center;
+    text-align: center;
+    padding-top:5px;
+  }
+}
+@media(max-width:670px)
+{
+  .direction1{
+    border:2px solid rgb(77, 151, 212);
+    padding:10px 0px;
+  }
+}
+
+.homebg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.2;
+  display: block;
+}
+
+.homepage {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.container1{
+  display:block;
+  width:auto;
+  height:auto;
+  border-width:4px;
+  border-color:midnightblue;
+  padding:40px 10px;
+  text-align:center;
+  border-radius:10%;
+}
+.container2{
+  color:white;
+  padding:10px 10px;
+  font-size: large;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:steelblue;
+}
+.add{
+  width:150px;
+  height:200px;
+}
+
+@media(max-width:600px)
+{
+  .flows{
+    flex-direction: column;
+  }
+}
+
+.bg1{
+  background-color: white;
+  border-color: aqua;
+  border-width: 4px;
+  border-radius: 5%;
+}
+
+.hover1:hover{
+  background-color:darkgray;
+  width:20vh;
+  height:auto;
+  text-align: center;
+}
+@media(max-width:800px){
+  .bookcart{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  }
+}
+
+.discription{
+  width:100%;
+  
+}
+@media(max-width:800px)
+{
+  .discription{
+    width:none;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}

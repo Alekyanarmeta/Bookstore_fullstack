@@ -1,13 +1,14 @@
 const router = require("express").Router();
 const User = require("../models/User");
+const authentication = require("./userauth");
 
-router.post("/add-to-favourites", async (req, res) => {
+router.put("/add-to-favourites",authentication,async (req, res) => {
     try {
         const { bookid, id } = req.headers
         const existinguser = await User.findById(id)
         const isfavourate = existinguser.favourites.includes(bookid)
         if (isfavourate) {
-            return res.status(400).json({ message: "book is already exist in favourates" })
+            return res.json({ message: "book is already exist in favourates" })
         }
         await User.findByIdAndUpdate(id, { $push: { favourites: bookid } })
         return res.status(200).json({ message: "added to favourates" })
@@ -17,7 +18,7 @@ router.post("/add-to-favourites", async (req, res) => {
     }
 })
 
-router.delete("/remove-from-favourites",async(req,res)=>{
+router.delete("/remove-from-favourites",authentication,async(req,res)=>{
     try{
     const {bookid,id}=req.headers
     await User.findByIdAndUpdate(
@@ -29,21 +30,20 @@ router.delete("/remove-from-favourites",async(req,res)=>{
     }
     catch(err)
     {
-        return res.status(400).json({message: "internal error"})
+        return res.json({message: "internal error"})
 
     }
 })
 
-router.get("/all-favourite-books",async(req,res)=>{
+router.get("/all-favourite-books",authentication,async(req,res)=>{
     try{
     const {id}=req.headers
     const user=await User.findById(id)
-    console.log(user)
     return res.status(200).json({favourites:user.favourites})
     }
     catch(err)
     {
-        return res.status(400).json({message: "internal error"})
+        return res.json({message: "internal error"})
     }
 })
 module.exports=router;

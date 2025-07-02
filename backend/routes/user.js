@@ -5,36 +5,38 @@ const jwt=require("jsonwebtoken")
 const authentication=require("./userauth")
 router.post("/sign-up", async (req, res) => {
     try {
-        const { username, email, password,address} = req.body
+        const { username, email, password, address } = req.body;
         if (username.length < 4) {
-            return res.json({ message: "username length should be greater than 4" })
+            return res.json({ message: "Username should be at least 4 characters long" });
         }
 
-        const user = await User.findOne({ username: username })
-        if (user) {
-            return res.json({ message: "username already exists" })
+        const existingUser = await User.findOne({ username });
+        if (existingUser) {
+            return res.json({ message: "Username already exists" });
         }
-        const em = await User.findOne({ email: email })
-        if (em) {
-            return res.json({ message: "email already exists" })
+
+        const existingEmail = await User.findOne({ email });
+        if (existingEmail) {
+            return res.json({ message: "Email already exists" });
         }
+
         if (password.length <= 5) {
-            return res.json({ message: "password length should greater than 5" })
+            return res.json({ message: "Password should be longer than 5 characters" });
         }
-        const hashpassword = await bcrypt.hash(password, 10)
-        const newuser = new User({
-            username: username,
-            email: email,
-            password: hashpassword
-        })
-
-        await newuser.save()
-        res.status(200).json({ message: "signup sucessfull" })
-    }
-    catch (err) {
-        return res.status(400).json({ message: "internal server error" })
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new User({
+            username:username,
+            email:email,
+            password: hashedPassword,
+            address:address 
+        });
+        await newUser.save();
+        return res.status(200).json({ message: "Signup successful" });
+    } catch (err) {
+        return res.status(500).json({ message: "Internal server error" });
     }
 });
+
 
 router.post("/sign-in", async (req, res) => {
   try {
@@ -70,9 +72,8 @@ router.post("/sign-in", async (req, res) => {
 router.get("/user-information",authentication,async(req,res)=>{
     try{
         const {id}=req.headers
-        console.log(id)
         const user=await User.findById(id)
-        console.log(user)
+
         if(!user)
         {
             return res.json({message:"information not found"})
@@ -87,9 +88,15 @@ router.get("/user-information",authentication,async(req,res)=>{
 
 router.put("/update-address",async(req,res)=>{
     const {id}=req.headers
-    const address=req.body
-    await User.findByIdAndUpdate(id,address)
-    return res.status(200).json({message:"upadte address sucess"})
+    const address=req.body.address
+    const user=await User.findByIdAndUpdate(
+      id,
+      {
+        address:address
+      },
+      {new:true}
+    )
+    return res.status(200).json({message:user})
 })
 
 module.exports = router;

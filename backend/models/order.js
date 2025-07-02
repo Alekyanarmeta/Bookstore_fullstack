@@ -3,16 +3,16 @@ const mongoose=require("mongoose");
 const order=new mongoose.Schema({
     user:{
         type:mongoose.Types.ObjectId,
-        ref:"user",
+        ref:"User",
     },
     books:{
         type:mongoose.Types.ObjectId,
-        ref:"books",
+        ref:"Books",
     },
     status:{
         type:String,
         default:"order placed",
-        enum:["order placed","out of delivered","delivered"]
+        enum:["order placed","out of delivered","delivered","order cancelled"]
     }
 
 },

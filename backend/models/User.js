@@ -37,13 +37,13 @@ const userSchema = new mongoose.Schema(
     favourites: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "books"
+        ref: "Books"
       }
     ],
     cart: [
       {
         type: mongoose.Types.ObjectId,
-        ref: "books"
+        ref: "Books"
       }
     ],
     orders: [

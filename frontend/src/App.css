@@ -72,13 +72,6 @@
   height:200px;
 }
 
-@media(max-width:600px)
-{
-  .flows{
-    flex-direction: column;
-  }
-}
-
 .bg1{
   background-color: white;
   border-color: aqua;
@@ -114,5 +107,76 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  }
+}
+.custom-button1{
+  padding-top:10px;
+  width:200px;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+}
+@media(max-width: 800px) {
+  .custom-button1 {
+    min-width:100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.icons{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding:8px;
+  width:30%;
+  height:15%;
+}
+@media(max-width: 800px)
+{
+  .icons{
+    border-radius: 0%;
+  }
+}
+.profile{
+  display:flex;
+  flex-direction: column;
+}
+@media(min-width:700px)
+{
+  .profile{
+    display:flex;
+    flex-direction: row;
+  }
+}
+
+.sidebar{
+  display:flex;
+  max-width:95vh;
+  height:auto;
+}
+@media(min-width:700px)
+{
+  .sidebar{
+    display:flex;
+    min-width:0%;
+    width: 200px;
+    min-height:100vh;
+    height: 0%;
+  }
+}
+
+.recent{
+  width:auto;
+  height:auto;
+}
+
+@media(min-width:"300px")
+{
+  .recent{
+    width:200px;
+    height:200px;
   }
 }

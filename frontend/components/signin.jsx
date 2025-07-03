@@ -13,12 +13,15 @@ function Signin() {
             if (username.current.value && email.current.value && password.current.value && address.current.value) {
 
                 const response=await axios.post("http://localhost:3000/api/auth/sign-up",{username:username.current.value,email:email.current.value,password:password.current.value,address:address.current.value})
+                console.log(response)
                 alert(response.data.message)
                 username.current.value = "";
                 email.current.value = "";
                 password.current.value ="";
                 address.current.value = "";
-                Navigate("/login")
+                if(response.data.message==="Signup successfull" || response.data.message==="Email already exists"){
+                    Navigate("/login")
+                }
             }
             else {
                 alert("invalid details")

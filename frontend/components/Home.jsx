@@ -2,9 +2,8 @@ import Homecontent from "./homecontent"
 import Recentbooks from "./recentlyadded"
 function Home() {
     return (
-        <div  style={{ backgroundColor: "#0F52BA", }}>
-            
-                
+        <div  className="min-vw-100" style={{ backgroundColor: "#0F52BA", }}>
+               
                 <Homecontent />
                 <Recentbooks />
 

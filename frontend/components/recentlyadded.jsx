@@ -21,19 +21,19 @@ function Recentbooks() {
         }, []
     )
     return (
-        <div className=" pb-5  text-white">
+        <div className="container pb-5 text-white">
             <h1 className="text-center">Recently added books</h1>
-            <div className="d-flex d-block justify-content-center align-items-center gap-5 flows">
+            <div className=" row d-flex d-block justify-content-center align-items-center gap-5 ">
                 {
                     (data && data.map(
                         (item, i) => {
                             return (
-                                <div className="text-muted bg1">
-                                    <div key={i} className="ps-4 pe-4 pt-4 pb-4 " >
+                                <div className="text-muted bg-light col-12 col-sm-12 col-md-6 col-lg-4 rounded-5 recent" style={{borderWidth:"2px",borderColor:"aqua"}}>
+                                    <div key={i} className="ps-4 pe-4 pt-4 pb-4" >
                                         <img className="add" src={item.url} />
                                         <strong>{item.title}</strong>
                                         <p>by {item.author}</p>
-                                        <large>{item.price} RS</large>
+                                        <large>{item.price} ₹ </large>
                                     </div>
                                 </div>
                             );

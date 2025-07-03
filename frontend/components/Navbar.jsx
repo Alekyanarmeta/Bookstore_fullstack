@@ -11,21 +11,20 @@ function Navbar() {
   const islogged=useSelector((state)=>{
     return state.auth.islogged
   })
-  console.log(islogged)
   if (islogged==false){
-    links.splice(2,3)
+    links.splice(1,3)
   }
   return (
     <div className="min-vw-100 text-white py-3 h-3 d-flex align-items-center justify-content-between justify-content-center direction"  style={{backgroundColor:"rgb(70, 70, 70)"}}>
-      <div className="d-flex gap-3 items-center">
+      <div className="d-flex gap-3 items-center ps-md-4">
         <img className="logo" src="/book.png" alt="Logo" />
-        <h2 className="hover:text-primary">Bookstore</h2>
+        <h2>Bookstore</h2>
       </div>
 
-      <div className="d-flex items-center align-items-center justify-content-center direction">
+      <div className="d-flex items-center align-items-center justify-content-center direction me-md-3">
         <div className="navbar">
           {links.map((item, i) => (
-            <Link key={i} className="navbar1 direction  direction1" to={item.link}>
+            <Link key={i} className="navbar1 direction  direction1 text-white text-decoration-none" to={item.link}>
               {item.title}
             </Link>
           ))}

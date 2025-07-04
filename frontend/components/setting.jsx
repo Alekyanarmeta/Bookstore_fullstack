@@ -13,14 +13,14 @@ function Settings()
     useEffect(
           ()=>{
             const fetch=async()=>{
-                const res1=await axios.get("http://localhost:3000/api/auth/user-information",{headers});
+                const res1=await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/user-information",{headers});
                 setuser(res1.data)
             }
             fetch()
         },[]
     )
     const changeAddress=async()=>{
-       const res1=await axios.put("http://localhost:3000/api/auth/update-address",{address:address},{headers});
+       const res1=await axios.put("https://bookstore-fullstack-4a2h.onrender.com/api/auth/update-address",{address:address},{headers});
        window.location.reload()
        setedit(false)
     }

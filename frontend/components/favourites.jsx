@@ -16,7 +16,7 @@ function Favourites()
     useEffect(
        ()=>{
         const fetch=async()=>{
-            const res=await axios.get("http://localhost:3000/api/auth/all-favourite-books",{headers});
+            const res=await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/all-favourite-books",{headers});
             setbooks(res.data.favourites)
         }
         fetch()
@@ -28,7 +28,7 @@ function Favourites()
                 const res=await Promise.all(
                     books.map(
                     async(id)=>{
-                        const res1=await axios.get(`http://localhost:3000/api/auth/get-book/${id}`);
+                        const res1=await axios.get(`https://bookstore-fullstack-4a2h.onrender.com/api/auth/get-book/${id}`);
                         return res1.data.message
                     }
                 ))
@@ -44,7 +44,7 @@ function Favourites()
             bookid:bookid,
             authorization:`Bearer ${localStorage.getItem("token")}`
         }
-        const res1=await axios.delete("http://localhost:3000/api/auth/remove-from-favourites",{headers});
+        const res1=await axios.delete("https://bookstore-fullstack-4a2h.onrender.com/api/auth/remove-from-favourites",{headers});
         
         window.location.reload();
     }

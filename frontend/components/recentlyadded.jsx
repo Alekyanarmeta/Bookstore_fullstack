@@ -8,7 +8,7 @@ function Recentbooks() {
         () => {
             const fetch = async () => {
                 try {
-                    const response = await axios.get("http://localhost:3000/api/auth/recent-books")
+                    const response = await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/recent-books")
 
                     setdata(response.data)
                 }

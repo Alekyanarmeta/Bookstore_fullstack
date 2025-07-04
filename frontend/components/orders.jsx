@@ -13,10 +13,10 @@ function Orders() {
   const fetchOrders = async () => {
     try {
       if (headers.role === "user") {
-        const res = await axios.get("http://localhost:3000/api/auth/get-orders-history", { headers });
+        const res = await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/get-orders-history", { headers });
         setorders(res.data.orders || []);
       } else {
-        const res = await axios.get("http://localhost:3000/api/auth/get-user-orders", { headers });
+        const res = await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/get-user-orders", { headers });
         setorders(res.data.orders)
       }
     } catch (error) {
@@ -33,7 +33,7 @@ function Orders() {
   const updatestatus = async (id, status) => {
     try {
       await axios.put(
-        "http://localhost:3000/api/auth/update-status",
+        "https://bookstore-fullstack-4a2h.onrender.com/api/auth/update-status",
         { id, status },
         { headers }
       );

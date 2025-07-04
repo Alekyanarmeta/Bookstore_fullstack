@@ -15,7 +15,7 @@ function Cart() {
     useEffect(
         () => {
             const fetch = async () => {
-                const res1 = await axios.get("http://localhost:3000/api/auth/get-user-cart", { headers });
+                const res1 = await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/get-user-cart", { headers });
                 setbooks(res1.data.cart)
             }
             fetch()
@@ -28,7 +28,7 @@ function Cart() {
                 const res = await Promise.all(
                     books.map(
                         async (id) => {
-                            const res1 = await axios.get(`http://localhost:3000/api/auth/get-book/${id}`);
+                            const res1 = await axios.get(`https://bookstore-fullstack-4a2h.onrender.com/api/auth/get-book/${id}`);
                             return res1.data.message
                         }
                     ))
@@ -39,12 +39,12 @@ function Cart() {
     )
 
     const removeall=async()=>{
-        const res1 = await axios.post("http://localhost:3000/api/auth/place-order", { books:books},{headers });
+        const res1 = await axios.post("https://bookstore-fullstack-4a2h.onrender.com/api/auth/place-order", { books:books},{headers });
         navigate("/profile/orders") 
     }
 
     const removeBook = async (bookid) => {
-        const res1 = await axios.delete(`http://localhost:3000/api/auth/remove-from-cart/${bookid}`, { headers });
+        const res1 = await axios.delete(`https://bookstore-fullstack-4a2h.onrender.com/api/auth/remove-from-cart/${bookid}`, { headers });
         alert(res1.data.message)
         window.location.reload()
     }

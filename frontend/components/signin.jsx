@@ -12,7 +12,7 @@ function Signin() {
         try {
             if (username.current.value && email.current.value && password.current.value && address.current.value) {
 
-                const response=await axios.post("http://localhost:3000/api/auth/sign-up",{username:username.current.value,email:email.current.value,password:password.current.value,address:address.current.value})
+                const response=await axios.post("https://bookstore-fullstack-4a2h.onrender.com/api/auth/sign-up",{username:username.current.value,email:email.current.value,password:password.current.value,address:address.current.value})
                 console.log(response)
                 alert(response.data.message)
                 username.current.value = "";

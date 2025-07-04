@@ -10,7 +10,7 @@ function Profile() {
         () => {
             const fetch = async () => {
                 try {
-                    const res = await axios.get("http://localhost:3000/api/auth/user-information", { headers })
+                    const res = await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/user-information", { headers })
                     setdetails(res.data)
                 }
                 catch (err) {

@@ -19,7 +19,7 @@ function Bookdetails() {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/auth/get-book/${id}`);
+        const response = await axios.get(`https://bookstore-fullstack-4a2h.onrender.com/api/auth/get-book/${id}`);
         setData(response.data.message);
       } catch (err) {
         console.error("Failed to fetch book:", err.message);
@@ -37,21 +37,21 @@ function Bookdetails() {
     bookid:id,
   }
   const AddtoFav=async()=>{
-      const res=await axios.put("http://localhost:3000/api/auth/add-to-favourites",{},{headers})
+      const res=await axios.put("https://bookstore-fullstack-4a2h.onrender.com/api/auth/add-to-favourites",{},{headers})
       alert(res.data.message)
    
   }
   const Addtocart=async()=>{
-    const res=await axios.put(`http://localhost:3000/api/auth/add-to-cart/${bookid}`,{},{headers})
+    const res=await axios.put(`https://bookstore-fullstack-4a2h.onrender.com/api/auth/add-to-cart/${bookid}`,{},{headers})
     alert(res.data.message)
   }
   const DeleteBook=async()=>{
-    const res1=await axios.delete(`http://localhost:3000/api/auth/remove-from-cart/${bookid}`,{headers})
-    const res2=await axios.delete("http://localhost:3000/api/auth/remove-from-favourites",{headers})
+    const res1=await axios.delete(`https://bookstore-fullstack-4a2h.onrender.com/api/auth/remove-from-cart/${bookid}`,{headers})
+    const res2=await axios.delete("https://bookstore-fullstack-4a2h.onrender.com/api/auth/remove-from-favourites",{headers})
 
   }
   const EditBook=async()=>{
-    const res=await axios.delete(`http://localhost:3000/api/auth/remove-from-cart/${bookid}`,{headers})
+    const res=await axios.delete(`https://bookstore-fullstack-4a2h.onrender.com/api/auth/remove-from-cart/${bookid}`,{headers})
   }
   if (loading) return <h3>Loading...</h3>;
 

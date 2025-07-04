@@ -15,7 +15,7 @@ function AddBook()
     }
 
     const details=async()=>{
-        const res1 = await axios.post("http://localhost:3000/api/auth/add-books",{url,title,author,price,desc,language}, { headers });
+        const res1 = await axios.post("https://bookstore-fullstack-4a2h.onrender.com/api/auth/add-books",{url,title,author,price,desc,language}, { headers });
         alert(res1.data.message)
         seturl("")
         settitle("")

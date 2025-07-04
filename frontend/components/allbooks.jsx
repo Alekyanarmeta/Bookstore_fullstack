@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../src/App.css";
-
 function Allbooks() {
   const [data, setData] = useState();
 
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/auth/get-all-books");
+        const response = await axios.get("https://bookstore-fullstack-4a2h.onrender.com/api/auth/get-all-books");
         setData(response.data);
       } catch (err) {
         console.error("Failed to fetch books:", err.message);
